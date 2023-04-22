@@ -13,6 +13,14 @@ const employeeSchema = new mongoose.Schema({
     password:{
         type:String,
         required: true
+    },
+    phone:{
+        type:Number,
+        required: true
+    },
+    user:{
+        type: String,
+        required: true
     }
 });
 
