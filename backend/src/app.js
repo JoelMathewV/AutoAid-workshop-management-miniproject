@@ -3,7 +3,7 @@ const app = express();
 require("./db/conn");
 const port = process.env.PORT || 3000;
 const Register = require("./models/register");
-const usremail="";
+const useremail="";
 
 app.use(express.static("../public"));
 app.use(express.json());
@@ -24,7 +24,7 @@ app.get("/register", function (req, res) {
 });
 
 app.get("/customer", function(req,res){
-  const name = usremail.name;
+  const name = username;
   res.render("customer", {name: name});
 });
 
@@ -60,8 +60,8 @@ app.post("/login", async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
-    usremail = await Register.findOne({ email: email });
-    // console.log(usremail.password);
+    const usremail = await Register.findOne({ email: email });
+    username = usremail.name;
     if (usremail.password === password) {
         if(usremail.user === "Customer"){
             res.redirect("/customer");
@@ -81,7 +81,7 @@ app.post("/login", async (req, res) => {
 });
 
 app.post("/customer", function(req,res){
-  
+
 });
 
 app.listen(3000, function () {
