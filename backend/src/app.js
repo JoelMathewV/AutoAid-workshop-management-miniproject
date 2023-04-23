@@ -3,6 +3,7 @@ const app = express();
 require("./db/conn");
 const port = process.env.PORT || 3000;
 const Register = require("./models/register");
+const usremail="";
 
 app.use(express.static("../public"));
 app.use(express.json());
@@ -20,6 +21,21 @@ app.get("/login", function (req, res) {
 
 app.get("/register", function (req, res) {
   res.render("register");
+});
+
+app.get("/customer", function(req,res){
+  const name = usremail.name;
+  res.render("customer", {name: name});
+});
+
+app.get("/admin", function(req,res){
+  const name = usremail.name;
+  res.render("admin", {name: name});
+});
+
+app.get("/employee", function(req,res){
+  const name = usremail.name;
+  res.render("employee", {name: name});
 });
 
 app.post("/register", function (req, res) {
@@ -44,17 +60,17 @@ app.post("/login", async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
-    const usremail = await Register.findOne({ email: email });
+    usremail = await Register.findOne({ email: email });
     // console.log(usremail.password);
     if (usremail.password === password) {
         if(usremail.user === "Customer"){
-            res.send("customer");
+            res.redirect("/customer");
         }
         else if(usremail.user === "Admin"){
-            res.send("admin");
+            res.redirect("/admin");
         }
         else{
-            res.send("employee");
+            res.redirect("/employee");
         }
     } else {
       res.send("invalid details");
@@ -62,6 +78,10 @@ app.post("/login", async (req, res) => {
   } catch {
     console.log("error");
   }
+});
+
+app.post("/customer", function(req,res){
+  
 });
 
 app.listen(3000, function () {
