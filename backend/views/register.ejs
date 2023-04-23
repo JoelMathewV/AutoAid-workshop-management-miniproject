@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link rel="stylesheet" href="css/login.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form action="/register" method="POST">
+                    <h2>Register</h2>
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input name="name" required>
+                        <label for="">Name</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input name="phone" required>
+                        <label for="">Phone no</label>
+                    </div>
+                    <!-- <div class="inputbox"> -->
+                    <!-- <ion-icon name="mail-outline"></ion-icon> -->
+                    <div class="form-group" style="color: white;">
+                        <label for="exampleFormControlSelect1">User Type</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="user">
+                            <option>Customer</option>
+                            <option>Admin</option>
+                            <option>Employee</option>
+                        </select>
+                    </div>
+                    <!-- </div> -->
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="email" name="email" required>
+                        <label for="">Email</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" name="password" required>
+                        <label for="">Password</label>
+                    </div>
+                    <div class="forget">
+                        <!-- <label for=""><input type="checkbox">Remember Me  <a href="#">Forget Password</a></label> -->
+
+                    </div>
+                    <button type="submit">Register</button>
+                </form>
+                <div class="register">
+                    <p>Don't have a account <a href="/login">login</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
