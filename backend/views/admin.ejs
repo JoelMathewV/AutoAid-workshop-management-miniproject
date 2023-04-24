@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,18 +8,18 @@
   <title>AutoAID ADMIN</title>
   <!--Material CDN-->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
-      rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
   <!--Stylesheet-->
-  <link rel="stylesheet" href="admin.css"> 
+  <link rel="stylesheet" href="css/admin.css">
 </head>
+
 <body>
   <div class="container">
     <aside>
       <div class="top">
         <div class="logo">
           <img src="">
-          <h2>AutoAID</h2>  
+          <h2>AutoAID</h2>
         </div>
         <div class="close" id="close-btn">
           <span class="material-symbols-sharp">close</span>
@@ -49,10 +50,10 @@
       </div>
     </aside>
     <main>
-      <h1>Dashboard</h1>
+      <h1>Welcome <%= name %></h1>
 
       <div class="date">
-        <input type="date">
+        <p><%= day%></p>
       </div>
       <!--Bookings-->
       <div class="insights">
@@ -74,7 +75,7 @@
           </div>
           <small class="text-muted">Last 24 Hours</small>
         </div>
-        <!--Employees-->  
+        <!--Employees-->
         <div class="employees">
           <span class="material-symbols-sharp">badge</span>
           <div class="middle">
@@ -93,7 +94,7 @@
           </div>
           <small class="text-muted">Last 24 Hours</small>
         </div>
-        <!--Inventory--> 
+        <!--Inventory-->
         <div class="inventory">
           <span class="material-symbols-sharp">inventory</span>
           <div class="middle">
@@ -111,9 +112,10 @@
           </div>
           <small class="text-muted">Last 24 Hours</small>
         </div>
-           
+
       </div>
     </main>
   </div>
 </body>
+
 </html>

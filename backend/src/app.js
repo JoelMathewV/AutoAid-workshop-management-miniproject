@@ -3,7 +3,7 @@ const app = express();
 require("./db/conn");
 const port = process.env.PORT || 3000;
 const Register = require("./models/register");
-const useremail="";
+var username="";
 
 app.use(express.static("../public"));
 app.use(express.json());
@@ -29,13 +29,26 @@ app.get("/customer", function(req,res){
 });
 
 app.get("/admin", function(req,res){
-  const name = usremail.name;
-  res.render("admin", {name: name});
+  const name = username;
+  var today = new Date();
+
+    var options = {
+        weekday: "long",
+        day: "numeric",
+        month: "long"
+    };
+
+  var day = today.toLocaleDateString("en-US", options);
+  res.render("admin", {name: name, day: day});
 });
 
 app.get("/employee", function(req,res){
-  const name = usremail.name;
+  const name = username;
   res.render("employee", {name: name});
+});
+
+app.post("/", function(req,res){
+  res.redirect("/");
 });
 
 app.post("/register", function (req, res) {
@@ -62,6 +75,7 @@ app.post("/login", async (req, res) => {
 
     const usremail = await Register.findOne({ email: email });
     username = usremail.name;
+    // console.log(usremail.name);
     if (usremail.password === password) {
         if(usremail.user === "Customer"){
             res.redirect("/customer");
