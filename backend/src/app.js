@@ -81,7 +81,7 @@ app.post("/login", async (req, res) => {
 });
 
 app.post("/customer", function(req,res){
-
+  res.redirect("/")
 });
 
 app.listen(3000, function () {

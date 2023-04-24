@@ -9,7 +9,7 @@
     <div class="container">
       <h1>welcome <%= name %></h1>
       <h1>Book a Slot for Car Mechanic Workshop</h1>
-      <form>
+      <form action="/booked" method="POST">
         <div class="form-group">
           <label for="vehicle-company">Vehicle Company:</label>
           <input type="text" class="form-control" id="vehicle-company" name="vehicle-company" required>
@@ -33,6 +33,9 @@
         <div class="form-group">
           <button type="submit" class="btn btn-primary">Book Now</button>
         </div>
+      </form>
+      <form action="/customer" method="POST">
+        <button type="submit" class="btn btn-primary"> Logout </button>
       </form>
     </div>
     
