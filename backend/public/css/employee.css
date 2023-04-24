@@ -1,0 +1,43 @@
+*
+{
+    padding:0px;
+    margin:0px;
+}
+body
+{
+    background-image: url(pro.jpg);
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.menu-bar
+{
+    background: rgb(0,100,0);
+    text-align: center;
+}
+.menu-bar
+{
+   display: inline-flex;
+   list-style: none;
+   color: #fff; 
+}
+.menu-bar ul li
+{
+width:120px;
+margin: 15px;
+padding:15px;
+}
+.container {
+    padding: 2rem 0rem;
+  }
+  
+  h4 {
+    margin: 2rem 0rem 1rem;
+  }
+  
+  .table-image {
+    td, th {
+      vertical-align: middle;
+    }
+  }
