@@ -98,6 +98,6 @@ app.post("/customer", function(req,res){
   res.redirect("/")
 });
 
-app.listen(3000, function () {
+app.listen(port, function () {
   console.log("server started at " + port);
 });
