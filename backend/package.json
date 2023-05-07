@@ -2,9 +2,8 @@
   "name": "autoaid-workshop-management-miniproject",
   "version": "1.0.0",
   "description": "**AutoAid** **Workshop Management**",
-
+  "main": "/src/app.js",
   "scripts": {
-    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
