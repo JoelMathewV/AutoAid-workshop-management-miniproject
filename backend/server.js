@@ -1,15 +1,15 @@
 const express = require("express");
 const app = express();
-require("./db/conn");
+require("./src/db/conn");
 const port = process.env.PORT || 3000;
-const Register = require("./models/register");
+const Register = require("./src/models/register");
 var username="";
 
-app.use(express.static("../public"));
+app.use(express.static("./public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
-app.set("views", "../views");
+app.set("views", "./views");
 
 app.get("/", function (req, res) {
   res.render("index");
