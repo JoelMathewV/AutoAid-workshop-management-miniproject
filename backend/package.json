@@ -2,11 +2,10 @@
   "name": "autoaid-workshop-management-miniproject",
   "version": "1.0.0",
   "description": "**AutoAid** **Workshop Management**",
-  "main": "/src/app.js",
+  "main": "/src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js",
-    "start": "node app.js"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
