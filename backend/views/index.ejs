@@ -1,151 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>AutoAid Workshop Management</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS Link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+    <!-- Custom CSS Link -->
+    <link rel="stylesheet" href="index.css" />
+
+    <!-- Google Fonts Link -->
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      integrity="sha512-KpuivwYtN+YtSeVn9jK/Qb7RsxZXlTv0l2QjKkKLtLhhr+sYDbBBLG0dd9iKfjz1BZ5f5gO1+ntx+nOoRjKo5g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">AutoAid Workshop Management</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet" />
+    <title>AUTO AID</title>
+</head>
 
-    <!-- Jumbotron -->
-    <div class="jumbotron jumbotron-fluid text-center">
-      <div class="container">
-        <h1 class="display-4">Welcome to AutoAid Workshop Management</h1>
-        <p class="lead">We provide the best automotive repair and maintenance services.</p>
-        <hr class="my-4" />
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn More</a>
-      </div>
-    </div>
+<body>
+    <header id="home-header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">AUTO <span class="text-primary">AID</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto text-center">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#section-title" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#container" class="nav-link">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="login.html" class="nav-link">Book Now</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
-    <!-- Services Section -->
-    <div class="container-fluid padding">
-      <div class="row welcome text-center">
-        <div class="col-12">
-          <h1 class="display-4">Our Services</h1>
+        <div id="home-header--bg-image">
+            <div class="home-header--title">
+                <div class="container p-5">
+                    <h1>Experience the Power of Precision Auto Care</h1>
+                    <h3 id="reservation-form">Welcome to AUTOAID</h3>
+                </div>
+            </div>
         </div>
-        <hr />
-      </div>
-    </div>
+    </header>
+    <main>
 
-    <div class="container-fluid padding">
-      <div class="row text-center padding">
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <i class="fas fa-car fa-5x"></i>
-          <h3>Car Repair</h3>
-          <p>We offer comprehensive car repair services, including engine repair, brake repair, transmission repair, and more.</p>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <i class="fas fa-gas-pump fa-5x"></i>
-          <h3>Fuel System Services</h3>
-          <p>We provide fuel system services, such as fuel injector cleaning, fuel filter replacement, and fuel pump repair.</p>
-        </div>
-        <div class="col-xs-12 col-md-4">
-          <i class="fas fa-wrench fa-5x"></i>
-          <h3>Maintenance Services</h3>
-          <p>We offer a variety of maintenance services, including oil changes, tire rotations, and inspections to keep your vehicle running smoothly.</p>
-        </div>
-      </div>
-    </div>
-    <!-- About Us Section -->
-<div class="container-fluid padding">
-  <div class="row welcome text-center">
-    <div class="col-12">
-      <h1 class="display-4">About Us</h1>
-    </div>
-    <hr />
-    <div class="col-12">
-      <p>AutoAid Workshop Management has been providing top-quality automotive services to the local community for over 20 years. Our experienced technicians are ASE-certified and use the latest diagnostic equipment to ensure your vehicle is repaired and maintained correctly the first time.</p>
-    </div>
-  </div>
-</div>
+        <section id="featured-rooms">
+            <div class="container my-5 py-5">
+                <div id="section-title">
+                    <h2>Services Offered</h2>
+                </div>
+                <div class="row custom-room-cards">
+                    <div class="col col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="assets/oilchange.jpg" alt="">
+                            </div>
+                            <div class="card-footer">
+                                <div class="label">Premium</div>
+                                <div class="price">&nbsp;$60/day</div>
+                            </div>
+                            <div class="footer-body">Oil change:</div>
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="/assets/brake.jpg" alt="">
+                            </div>
+                            <div class="card-footer">
+                                <div class="label">Premium</div>
+                                <div class="price">&nbsp;$80/day</div>
+                            </div>
+                            <div class="footer-body">Brake inspection</div>
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="/assets/paint.jpg" alt="">
+                            </div>
+                            <div class="card-footer">
+                                <div class="label">Premium</div>
+                                <div class="price">&nbsp;$100/day</div>
+                            </div>
+                            <div class="footer-body">Painting</div>
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="/assets/transmission.jpg" alt="">
+                            </div>
+                            <div class="card-footer">
+                                <div class="label">Premium</div>
+                                <div class="price">&nbsp;$120/day</div>
+                            </div>
+                            <div class="footer-body">Transmission repair</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<!-- Contact Us Section -->
-<div class="container-fluid padding">
-  <div class="row welcome text-center">
-    <div class="col-12">
-      <h1 class="display-4">Contact Us</h1>
-    </div>
-    <hr />
-    <div class="col-12">
-      <p>1234 Main Street</p>
-      <p>Springfield, USA 12345</p>
-      <p>(555) 555-5555</p>
-      <p>autoaid@workshop.com</p>
-    </div>
-  </div>
-</div>
+        <section id="decoration-accomodation">
+            <div class="container my-5 py-5">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="content">
+                            <div class="section-title">
+                                <h2>Gallery</h2>
+                            </div>
+                            <p>
 
-<!-- Footer Section -->
-<footer>
-  <div class="container-fluid padding">
-    <div class="row text-center">
-      <div class="col-md-4">
-        <img src="logo.png" alt="" />
-        <hr class="light" />
-        <p>1234 Main Street</p>
-        <p>Springfield, USA 12345</p>
-        <p>(555) 555-5555</p>
-        <p>autoaid@workshop.com</p>
-      </div>
-      <div class="col-md-4">
-        <hr class="light" />
-        <h5>Working Hours</h5>
-        <hr class="light" />
-        <p>Monday - Friday: 8am - 5pm</p>
-        <p>Saturday: 8am - 12pm</p>
-        <p>Sunday: Closed</p>
-      </div>
-      <div class="col-md-4">
-        <hr class="light" />
-        <h5>Connect</h5>
-        <hr class="light" />
-        <a href="#"><i class="fab fa-facebook-square"></i></a>
-        <a href="#"><i class="fab fa-twitter-square"></i></a>
-        <a href="#"><i class="fab fa-instagram-square"></i></a>
-        <a href="#"><i class="fab fa-youtube-square"></i></a>
-      </div>
-      <div class
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-7 card-container">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="/assets/gallery1.jpg" alt="">
+                            </div>
+                            <div class="card-footer"> </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="/assets/gallery2.jpg" alt="">
+                            </div>
+                            <div class="card-footer"></div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="/assets/gallery3.jpg" alt="">
+                            </div>
+                            <div class="card-footer"></div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="/assets/gallery4.jpg" alt="">
+                            </div>
+                            <div class="card-footer"></div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="/assets/gallery5.jpg" alt="">
+                            </div>
+                            <div class="card-footer"></div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="/assets/gallery6.jpg" alt="">
+                            </div>
+                            <div class="card-footer"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonial-section">
+            <div class="container my-5 py-5">
+                <div id="section-title">
+                    <h2>Testimonials</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="testimonial">
+                            <div class="testimonial-body">
+                                <img src="/assets/customer1.jpg" alt="">
+                                <blockquote>
+                                    <p>"Praveen and his team from Grace Auto Repair were very professional and have
+                                        communicated well from the moment the car was received in their garage to
+                                        inspection, quotation all the way to service completion, I was kept informed of
+                                        the progress. They are easy to deal with, honest and fast with their turn-around
+                                        time. Kudos to the team and keep up the good work."
+                                    </p>
+                                    <footer>
+                                        <cite>- Roel B</cite>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="testimonial">
+                            <div class="testimonial-body">
+                                <img src="/assets/customer2.jpg" alt="">
+                                <blockquote>
+                                    <p>"As many other people have noted, few business come close to the customer
+                                        engagement and communication of Grace workshop. They help keep you updated
+                                        throughout the work period and inform of you each change or additional work
+                                        needed. They charge for the initial inspection which is expected and they
+                                        thoroughly inspect each part of the vehicle for a comprehensive check up. The
+                                        list they prepare can include non essential work which you can speak to them
+                                        about and have it reduced and their communication was always professional and
+                                        helpful. They cover complex work from electrical and AC to basic and paint jobs.
+                                        The paint work they did was excellent and it was difficult to differentiate it
+                                        from the original parts. While you can get cheaper work from places elsewhere,
+                                        they are much more easy to work with and get everything done in one place
+                                        without hassle."
+                                    </p>
+                                    <footer>
+                                        <cite>- Saad S</cite>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="home-banner">
+            <div class="banner">
+                <div class="container">
+                    <div class="jumbotron">
+                        <h6>NOTICE</h6>
+                        <h3>Thank you for visiting us. We strive to provide the best auto care services for your
+                            vehicle. Drive safely!</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="page-footer font-small blue pt-4">
+        <div id="container">
+            <div class="row">
+
+                <div class="col-md-4 mb-md-0 mb-3">
+                    <h5 class="More">Links</h5>
+                    <ul class="list-unstyled">
+
+                        <li>
+                            <a href="#!">Services</a>
+                        </li>
+                        <li>
+                            <a href="#!">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#!">Login</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 mb-md-0 mb-3">
+                    <h5>Book Now</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">LOGIN HERE</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-md-0 mb-3">
+                    <h5>Need assistance? We're here to help</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">Toll Free no.</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer-copyright text-center py-3">
+            AUTOAID &copy;2023, All Rights Reserved
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript Links -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
