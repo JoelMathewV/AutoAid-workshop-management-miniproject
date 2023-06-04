@@ -53,40 +53,25 @@
                   <th scope="col">ACTION</th>               
                 </tr>
               </thead>
+              
               <tbody>
+                <%for (var i=0; i<itemName.length; i++){ %>
                 <tr>
-                  <th scope="row">1</th>
-                  <td></td>
-                  <td></td>
-                  
+                  <th scope="row"><%= i+1%></th>
                   <td>
-                    <button type="button" class="btn btn-primary">DONE</i></button>
+                    <%= itemName[i].problem%>
+                  </td>
+                  <td>
+                    <%= itemName[i].date.toLocaleDateString('en-GB'); %>
+                  </td>
+                  <td>
+                    <form action="/employee" method="post">
+                      <button name="checkbox" type="submit" class="btn btn-primary" value= <%= itemName[i].email %>>DONE</i></button>
+                    </form>
                   </td>
                 </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <button type="button" class="btn btn-primary">DONE</i></button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <button type="button" class="btn btn-primary">DONE</i></button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">4</th>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <button type="button" class="btn btn-primary">DONE</i></button>
-                  </td>
-                </tr>
+                <% } %>
+
               </tbody>
             </table>
           </div>

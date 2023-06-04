@@ -3,6 +3,7 @@ const app = express();
 require("./src/db/conn");
 const port = process.env.PORT || 3000;
 const Register = require("./src/models/register");
+const Customer = require("./src/models/customer");
 var username="";
 
 app.use(express.static("./public"));
@@ -25,7 +26,7 @@ app.get("/register", function (req, res) {
 
 app.get("/customer", function(req,res){
   const name = username;
-  res.render("customer", {name: name});
+  res.render("customer");
 });
 
 app.get("/admin", function(req,res){
@@ -43,8 +44,20 @@ app.get("/admin", function(req,res){
 });
 
 app.get("/employee", function(req,res){
-  const name = username;
-  res.render("employee", {name: name});
+
+  Customer.find().then((data) => {
+    res.render("employee", { itemName: data });
+  });
+});
+
+app.post("/delete", function(req, res){
+  const checked = req.body.checkbox;
+  Customer.deleteOne({ email: checked }).then(function(){
+    console.log(" deleted"); // Success
+    res.redirect("/admin");
+ }).catch(function(error){
+    console.log(error); // Failure
+ });
 });
 
 app.post("/", function(req,res){
@@ -94,8 +107,34 @@ app.post("/login", async (req, res) => {
   }
 });
 
+app.post("/employee", function(req, res){
+  const checked = req.body.checkbox;
+  Customer.deleteOne({ email: checked }).then(function(){
+    console.log(" deleted"); // Success
+    res.redirect("employee");
+ }).catch(function(error){
+    console.log(error); // Failure
+ });
+});
+
 app.post("/customer", function(req,res){
-  res.redirect("/")
+  try {
+    const reg = new Customer({
+      name: req.body.name,
+      email: req.body.email,
+      phone: req.body.phone,
+      vehicle_no: req.body.vehicle_no,
+      chassis: req.body.chassis,
+      problem: req.body.problem,
+      date: req.body.date,
+    });
+    console.log(reg);
+    reg.save();
+
+    res.redirect("/");
+  } catch {
+    console.log("error");
+  }
 });
 
 app.listen(port, function () {

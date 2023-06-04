@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
     <!-- Custom CSS Link -->
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="css/index.css" />
 
     <!-- Google Fonts Link -->
     <link
@@ -38,7 +38,11 @@
                         <a href="index.html#container" class="nav-link">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a href="login.html" class="nav-link">Book Now</a>
+                        <form id="my_form" method="get" action="/customer">
+                            <a href="javascript:{}" class="nav-link"
+                                onclick="document.getElementById('my_form').submit();" style="color: white;">Book Now
+                            </a>
+                          </form>
                     </li>
                 </ul>
             </div>
