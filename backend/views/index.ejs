@@ -29,35 +29,47 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto text-center">
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="#home-header" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="index.html#section-title" class="nav-link">Services</a>
+                        <a href="#featured-rooms" class="nav-link">Services</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="index.html#container" class="nav-link">About Us</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="about-us-dropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            About Us
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="about-us-dropdown">
+                            <li><a class="dropdown-item" href="#decoration-accomodation">Gallery</a></li>
+                            <li><a class="dropdown-item" href="#testimonial-section">Testimonials</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <form id="my_form" method="get" action="/customer">
                             <a href="javascript:{}" class="nav-link"
                                 onclick="document.getElementById('my_form').submit();" style="color: white;">Book Now
                             </a>
-                          </form>
+                          </form>                    
                     </li>
                 </ul>
             </div>
         </nav>
-
         <div id="home-header--bg-image">
             <div class="home-header--title">
                 <div class="container p-5">
                     <h1>Experience the Power of Precision Auto Care</h1>
                     <h3 id="reservation-form">Welcome to AUTOAID</h3>
+                    <hr> <!-- Add a horizontal line -->
+                    <div class="text-center"> <!-- Center-align the button -->
+                        <a href="/booking-page" class="btn btn-outline-light btn-lg">Book Now</a> <!-- Add btn-lg class for larger size -->
+                    </div>
                 </div>
             </div>
         </div>
+        
     </header>
     <main>
+
 
         <section id="featured-rooms">
             <div class="container my-5 py-5">
@@ -254,16 +266,19 @@
                             <a href="#!">About Us</a>
                         </li>
                         <li>
-                            <a href="#!">Login</a>
+                            <form method="get" action="/login">
+                                <button type="submit">Staff Login</button>
+                            </form>
                         </li>
+
                     </ul>
                 </div>
 
                 <div class="col-md-4 mb-md-0 mb-3">
-                    <h5>Book Now</h5>
+
                     <ul class="list-unstyled">
                         <li>
-                            <a href="#!">LOGIN HERE</a>
+                            <a href="#!">BOOK NOW</a>
                         </li>
                     </ul>
                 </div>
