@@ -12,6 +12,7 @@
 
 body {
     background: whitesmoke;
+    padding-top: 72px;
 }
 
 
@@ -179,10 +180,13 @@ a.nav-link {
 }
 
 #home-header #home-header--bg-image {
-    background-image: url("../assets/BG1.jpg");
+    background-image: url("/images/BG1.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+#home-header--bg-image {
+    margin-top: -72px; 
 }
 
 #home-header .home-header--title {
@@ -501,4 +505,13 @@ a.nav-link {
         width: 60px;
         height: 60px;
     }
+}
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
 }
