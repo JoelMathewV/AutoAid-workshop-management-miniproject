@@ -40,7 +40,10 @@ app.get("/admin", function(req,res){
     };
 
   var day = today.toLocaleDateString("en-US", options);
-  res.render("admin", {name: name, day: day});
+  Customer.find().then((data) => {
+    // res.render("employee", { itemName: data });
+    res.render("admin", {name: name, day: day, itemName: data});
+  });
 });
 
 app.get("/employee", function(req,res){

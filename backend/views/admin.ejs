@@ -11,6 +11,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
   <!--Stylesheet-->
   <link rel="stylesheet" href="css/admin.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -56,63 +58,53 @@
         <p><%= day%></p>
       </div>
       <!--Bookings-->
-      <div class="insights">
-        <div class="bookings">
-          <span class="material-symbols-sharp">receipt_long</span>
-          <div class="middle">
-            <div class="left">
-              <h3>Bookings</h3>
-              <h1>8</h1>
-            </div>
-            <div class="progress">
-              <!--<svg>
-                <circle cx='38' cy='38' r='36'></circle>
-              </svg>-->
-              <div class="number">
-                <h1>90%</h1>
-              </div>
-            </div>
-          </div>
-          <small class="text-muted">Last 24 Hours</small>
-        </div>
-        <!--Employees-->
-        <div class="employees">
-          <span class="material-symbols-sharp">badge</span>
-          <div class="middle">
-            <div class="left">
-              <h3>Employees Available</h3>
-              <h1>2</h1>
-            </div>
-            <div class="progress">
-              <!--svg>
-                <circle cx='38' cy='38' r='36'></circle>
-              </svg-->
-              <div class="number">
-                <h1>20%</h1>
-              </div>
-            </div>
-          </div>
-          <small class="text-muted">Last 24 Hours</small>
-        </div>
-        <!--Inventory-->
-        <div class="inventory">
-          <span class="material-symbols-sharp">inventory</span>
-          <div class="middle">
-            <div class="left">
-              <h3>Inventory Items Available</h3>
-            </div>
-            <div class="progress">
-              <!--svg>
-                <circle cx='38' cy='38' r='36'></circle>
-              </svg-->
-              <div class="number">
-                <h1>14%</h1>
-              </div>
-            </div>
-          </div>
-          <small class="text-muted">Last 24 Hours</small>
-        </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">S.NO</th>
+                  <th scope="col">TASK</th>
+                  <th scope="col">NAME</th>
+                  <th scope="col">VEHICLE NO</th>
+                  <th scope="col">CHASSIS NO.</th>
+                  <th scope="col">DUE DATE</th>
+                  <th scope="col">ACTION</th>               
+                </tr>
+              </thead>
+              
+              <tbody>
+                <%for (var i=0; i<itemName.length; i++){ %>
+                <tr>
+                  <th scope="row"><%= i+1%></th>
+                  <td>
+                    <%= itemName[i].problem%>
+                  </td>
+                  <td>
+                    <%= itemName[i].name%>
+                  </td>
+                  <td>
+                    <%= itemName[i].vehicle_no%>
+                  </td>
+                  <td>
+                    <%= itemName[i].chassis%>
+                  </td>
+                  <td>
+                    <%= itemName[i].date.toLocaleDateString('en-GB'); %>
+                  </td>
+                  <td>
+                    <form action="/employee" method="post">
+                      <button name="checkbox" type="submit" class="btn btn-primary" value= <%= itemName[i].email %>>DONE</i></button>
+                    </form>
+                  </td>
+                </tr>
+                <% } %>
 
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </main>
     <div class="right">
