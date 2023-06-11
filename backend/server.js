@@ -4,6 +4,8 @@ require("./src/db/conn");
 const port = process.env.PORT || 3000;
 const Register = require("./src/models/register");
 const Customer = require("./src/models/customer");
+const Employee = require("./src/models/employee");
+//added employee.js
 var username="";
 
 app.use(express.static("./public"));
@@ -14,6 +16,10 @@ app.set("views", "./views");
 
 app.get("/", function (req, res) {
   res.render("index");
+});
+
+app.get("/test", function (req, res) {
+  res.render("test");
 });
 
 app.get("/login", function (req, res) {
@@ -80,6 +86,23 @@ app.post("/register", function (req, res) {
 
     res.redirect("/");
   } catch {
+    console.log("error");
+  }
+});
+
+app.post("/test", function (req, res) {
+  try {
+    const newreg = new Employee({
+      name: req.body.name,//to show i/p
+      salary: req.body.salary,
+      works: req.body.works,
+    });
+    console.log(newreg);
+  //   newreg.save();
+
+  //   res.redirect("/");
+   } 
+  catch {
     console.log("error");
   }
 });
