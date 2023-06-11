@@ -5,7 +5,10 @@ const port = process.env.PORT || 3000;
 const Register = require("./src/models/register");
 const Customer = require("./src/models/customer");
 const Employee = require("./src/models/employee");
-//added employee.js
+const Complete = require("./src/models/complete");
+
+//Skj_added employee.js
+//skj_added complete.js
 var username="";
 
 app.use(express.static("./public"));
@@ -18,8 +21,12 @@ app.get("/", function (req, res) {
   res.render("index");
 });
 
-app.get("/test", function (req, res) {
-  res.render("test");
+app.get("/test_skj1", function (req, res) {
+  res.render("test_skj1");
+});
+
+app.get("/test_skj2", function (req, res) {
+  res.render("test_skj2");
 });
 
 app.get("/login", function (req, res) {
@@ -90,12 +97,37 @@ app.post("/register", function (req, res) {
   }
 });
 
-app.post("/test", function (req, res) {
+//EMPLOYEE SCHEMA
+app.post("/test_skj1", function (req, res) {
   try {
     const newreg = new Employee({
       name: req.body.name,//to show i/p
       salary: req.body.salary,
       works: req.body.works,
+    });
+    console.log(newreg);
+  //   newreg.save();
+
+  //   res.redirect("/");
+   } 
+  catch {
+    console.log("error");
+  }
+});
+
+//COMPLETE SCHEMA
+app.post("/test_skj2", function (req, res) {
+  try {
+    const newreg = new Complete({
+      name: req.body.name,
+      email : req.body.email,
+      vehicle_no : req.body.vehicle_no,
+      phone : req.body.phone,
+      chassis : req.body.chasis,
+      problem : req.body.problem,
+      date : req.body.date,
+      parts :req.body.parts,//to show i/p
+      t_cost : req.body.t_cost,
     });
     console.log(newreg);
   //   newreg.save();
