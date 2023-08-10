@@ -15,9 +15,6 @@ const employeeSchema=new mongoose.Schema({
     works:{
         type: [String]
     }
-    // custemail:{
-    //     type: [String]
-    // }
 });
 const Employee= new mongoose.model("Employee",employeeSchema);
 module.exports=Employee;

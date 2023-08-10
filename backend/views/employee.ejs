@@ -48,7 +48,8 @@
                   </td> -->
                   <td>
                     <form action="/employee" method="post">
-                      <button name="checkbox" type="submit" class="btn btn-primary" value= <%= data.email %>>DONE</i></button>
+                      <input type="hidden" name="email" value="<%= data.email %>">
+                      <button name="checkbox" type="submit" class="btn btn-primary" value= <%= data.works[i] %>>DONE</i></button>
                     </form>
                   </td>
                 </tr>

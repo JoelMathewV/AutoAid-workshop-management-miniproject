@@ -176,12 +176,37 @@ app.post("/login", async (req, res) => {
 
 app.post("/employee", function(req, res){
   const checked = req.body.checkbox;
-  Employee.deleteOne({ email: checked }).then(function(){
-    console.log(" deleted"); // Success
-    res.redirect("employee");
- }).catch(function(error){
-    console.log(error); // Failure
- });
+  const empEmail = req.body.email;
+  console.log(checked+" "+empEmail);
+
+  Employee.findOne({ email: empEmail })
+  .then(employee => {
+    if (!employee) {
+      console.log("Employee not found");
+      return;
+    }
+
+    // Remove the element from the works array based on the value of 'checked'
+    employee.works.pull(checked);
+
+    return employee.save(); // Save the updated employee
+  })
+  .then(updatedEmployee => {
+    if (updatedEmployee) {
+      console.log("Element removed from employee's works:", updatedEmployee);
+      res.redirect("employee");
+    }
+  })
+  .catch(error => {
+    console.error("Error:", error);
+  });
+
+//   Employee.deleteOne({ email: checked }).then(function(){
+//     console.log(" deleted"); // Success
+//     res.redirect("employee");
+//  }).catch(function(error){
+//     console.log(error); // Failure
+//  });
 });
 
 app.post("/customer", function(req,res){
