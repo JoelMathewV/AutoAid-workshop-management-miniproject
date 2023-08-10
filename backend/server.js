@@ -7,6 +7,10 @@ const Customer = require("./src/models/customer");
 const Employee = require("./src/models/employee");
 const Complete = require("./src/models/complete");
 
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const client = require('twilio')(accountSid, authToken);
+
 //Skj_added employee.js
 //skj_added complete.js
 var username="";
@@ -155,17 +159,17 @@ app.post("/login", async (req, res) => {
     // console.log(usremail.name);
     if (usremail.password === password) {
         if(usremail.user === "Employee"){
-            res.redirect("/customer");
+            res.redirect("/employee");
         }
         else if(usremail.user === "Admin"){
             res.redirect("/admin");
         }
     } else {
-      res.render("/failure");
+      res.redirect("/failure");
       // res.send("invalid details");
     }
   } catch {
-    res.render("/failure");
+    res.redirect("/failure");
     // console.log("error");
   }
 });
@@ -194,6 +198,20 @@ app.post("/customer", function(req,res){
     console.log(reg);
     reg.save()
   .then(() => {
+    client.messages
+          .create({
+            body:
+              "An appointment has been booked by " +
+              reg.name +
+              " with vehicle no. " +
+              reg.vehicle_no +
+              " and the issue is " +
+              reg.problem,
+            from: process.env.TWILIO_SEND_NO,
+            // to: "whatsapp:+971501442785"
+            to: "+918075019694"
+          })
+          .then((message) => console.log(message));
     res.redirect("/success");
   })
   .catch(error => {
