@@ -244,7 +244,7 @@
             <div class="banner">
                 <div class="container">
                     <div class="jumbotron">
-                        <h6>NOTICE</h6>
+                        <!-- <h6>NOTICE</h6> -->
                         <h3>Thank you for visiting us. We strive to provide the best auto care services for your
                             vehicle. Drive safely!</h3>
                     </div>
@@ -262,7 +262,7 @@
                     <ul class="list-unstyled">
 
                         <li>
-                            <a href="#!">Services</a>
+                            <a href="#featured-rooms">Services</a>
                         </li>
                         <li>
                             <a href="#!">About Us</a>
@@ -280,7 +280,11 @@
 
                     <ul class="list-unstyled">
                         <li>
-                            <a href="#!">BOOK NOW</a>
+                            <form id="my_form" method="get" action="/customer">
+                                <a href="javascript:{}" class="nav-link"
+                                    onclick="document.getElementById('my_form').submit();" style="color: blue;">Book Now
+                                </a>
+                              </form>
                         </li>
                     </ul>
                 </div>

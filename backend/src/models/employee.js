@@ -4,14 +4,20 @@ const employeeSchema=new mongoose.Schema({
         type:String,
         required:true
     },
+    email:{
+        type:String,
+        required: true,
+        unique: true
+    },
     salary:{
-        type:Number,
-        required:true
+        type:Number
     },
     works:{
-        type: [mongoose.Schema.Types.String],
-        required: true
+        type: [String]
     }
+    // custemail:{
+    //     type: [String]
+    // }
 });
 const Employee= new mongoose.model("Employee",employeeSchema);
 module.exports=Employee;

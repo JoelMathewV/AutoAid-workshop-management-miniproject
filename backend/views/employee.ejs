@@ -10,33 +10,15 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="w-50 p-3"><B>AUTOAID</B></div>
-          <a class="navbar-brand" href="#">Home</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               
-              <li class="nav-item">
-                <a class="nav-link" href="#"></a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  SERVICES
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">MECHANIC SERVICES</a></li>
-                  <li><a class="dropdown-item" href="#">SPARE PARTS</a></li>
-                  <li><a class="dropdown-item" href="#">MODIFICATION</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">ABOUT US</a>
-              </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+            <form action="/" method="POST">
+              <button type="submit" class="btn btn-primary"> Logout </button>
             </form>
           </div>
         </div>
@@ -49,7 +31,7 @@
                 <tr>
                   <th scope="col">S.NO</th>
                   <th scope="col">TASK</th>
-                  <th scope="col">DUE DATE</th>
+                  <!-- <th scope="col">DUE DATE</th> -->
                   <th scope="col">ACTION</th>               
                 </tr>
               </thead>
@@ -59,14 +41,14 @@
                 <tr>
                   <th scope="row"><%= i+1%></th>
                   <td>
-                    <%= itemName[i].problem%>
+                    <%= itemName[i]%>
                   </td>
-                  <td>
-                    <%= itemName[i].date.toLocaleDateString('en-GB'); %>
-                  </td>
+                  <!-- <td>
+                    itemName[i].date.toLocaleDateString('en-GB');
+                  </td> -->
                   <td>
                     <form action="/employee" method="post">
-                      <button name="checkbox" type="submit" class="btn btn-primary" value= <%= itemName[i].email %>>DONE</i></button>
+                      <button name="checkbox" type="submit" class="btn btn-primary" value= <%= data.email %>>DONE</i></button>
                     </form>
                   </td>
                 </tr>
@@ -77,9 +59,7 @@
           </div>
         </div>
       </div>
-      <form action="/" method="POST">
-        <button type="submit" class="btn btn-primary"> Logout </button>
-      </form>
+      
       
 </body>
 </html>

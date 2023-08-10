@@ -10,6 +10,7 @@ const Complete = require("./src/models/complete");
 //Skj_added employee.js
 //skj_added complete.js
 var username="";
+var email = "";
 
 app.use(express.static("./public"));
 app.use(express.json());
@@ -51,19 +52,33 @@ app.get("/admin", function(req,res){
         day: "numeric",
         month: "long"
     };
-
   var day = today.toLocaleDateString("en-US", options);
-  Customer.find().then((data) => {
-    // res.render("employee", { itemName: data });
-    res.render("admin", {name: name, day: day, itemName: data});
+  Employee.find().then((empid) => {
+    Customer.find().then((data) => {
+      console.log(empid[0].email);
+      res.render("admin", {name: name, day: day, itemName: data, empname: empid});
+    });
   });
 });
 
 app.get("/employee", function(req,res){
 
-  Customer.find().then((data) => {
-    res.render("employee", { itemName: data });
+  Employee.find().then((data) => {
+    for(var i=0; i<data.length; i++){
+      if(data[i].email === email){
+        console.log(data[i].email);
+        res.render("employee", { itemName: data[i].works, data: data[i], name: data[i].name});
+      }
+    }
   });
+});
+
+app.get("/success", function(req, res){
+  res.render("success");
+});
+
+app.get("/failure", function(req, res){
+  res.render("failure");
 });
 
 app.post("/delete", function(req, res){
@@ -91,29 +106,20 @@ app.post("/register", function (req, res) {
     });
     newreg.save();
 
+    if (newreg.user === "Employee"){
+      const newemp = new Employee({
+        name: newreg.name,
+        email: newreg.email
+      });
+      newemp.save();
+    }
+
     res.redirect("/");
   } catch {
     console.log("error");
   }
 });
 
-//EMPLOYEE SCHEMA
-app.post("/test_skj1", function (req, res) {
-  try {
-    const newreg = new Employee({
-      name: req.body.name,//to show i/p
-      salary: req.body.salary,
-      works: req.body.works,
-    });
-    console.log(newreg);
-  //   newreg.save();
-
-  //   res.redirect("/");
-   } 
-  catch {
-    console.log("error");
-  }
-});
 
 //COMPLETE SCHEMA
 app.post("/test_skj2", function (req, res) {
@@ -141,33 +147,32 @@ app.post("/test_skj2", function (req, res) {
 
 app.post("/login", async (req, res) => {
   try {
-    const email = req.body.email;
+    email = req.body.email;
     const password = req.body.password;
 
     const usremail = await Register.findOne({ email: email });
     username = usremail.name;
     // console.log(usremail.name);
     if (usremail.password === password) {
-        if(usremail.user === "Customer"){
+        if(usremail.user === "Employee"){
             res.redirect("/customer");
         }
         else if(usremail.user === "Admin"){
             res.redirect("/admin");
         }
-        else{
-            res.redirect("/employee");
-        }
     } else {
-      res.send("invalid details");
+      res.render("/failure");
+      // res.send("invalid details");
     }
   } catch {
-    console.log("error");
+    res.render("/failure");
+    // console.log("error");
   }
 });
 
 app.post("/employee", function(req, res){
   const checked = req.body.checkbox;
-  Customer.deleteOne({ email: checked }).then(function(){
+  Employee.deleteOne({ email: checked }).then(function(){
     console.log(" deleted"); // Success
     res.redirect("employee");
  }).catch(function(error){
@@ -187,12 +192,49 @@ app.post("/customer", function(req,res){
       date: req.body.date,
     });
     console.log(reg);
-    reg.save();
+    reg.save()
+  .then(() => {
+    res.redirect("/success");
+  })
+  .catch(error => {
+    res.redirect("/failure");
+    // Handle the error and possibly send an error response to the client
+    // res.status(500).send("An error occurred while saving the registration.");
+  });
 
-    res.redirect("/");
+    // res.redirect("/success");
   } catch {
-    console.log("error");
+    res.redirect("/failure");
+    // console.log("error");
   }
+});
+
+app.post("/admin", function(req,res){
+  const checked = req.body.checkbox;
+  const emp = req.body.user;
+  Customer.findOne({ email: checked }, { problem: 1 })
+  .exec()
+  .then(function (result) {
+    // Handle the result here
+    const problem = result.problem;
+    console.log(emp);
+    Employee.updateOne({ email: emp }, { $push: { works: problem } }).then(function () {
+      // Update success
+      Customer.deleteOne({ email: checked }).then(function () {
+        console.log("Deleted");
+        res.redirect("admin");
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }).catch(function (error) {
+      console.log(error);
+    });
+  })
+  .catch(function (error) {
+    console.log(error);
+    // Handle findOne error
+  });
+
 });
 
 app.listen(port, function () {

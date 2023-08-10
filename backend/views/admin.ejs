@@ -94,7 +94,12 @@
                     <%= itemName[i].date.toLocaleDateString('en-GB'); %>
                   </td>
                   <td>
-                    <form action="/employee" method="post">
+                    <form action="/admin" method="post">
+                      <select class="form-control" id="exampleFormControlSelect1" name="user">
+                        <%for (var j = 0; j<empname.length; j++){ %>
+                        <option value= <%= empname[j].email; %> ><%= empname[j].name;%></option>
+                        <% } %>
+                    </select>
                       <button name="checkbox" type="submit" class="btn btn-primary" value= <%= itemName[i].email %>>DONE</i></button>
                     </form>
                   </td>
